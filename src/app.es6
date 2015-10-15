@@ -1,10 +1,13 @@
 "use strict";
 
-import IoC from "electrolyte";
+import intravenous from "intravenous";
 import Settings from "./app/components/settings";
 import SettingsPrinter from "./app/components/settingsPrinter";
 
-IoC.loader(IoC.node("app/components"));
+const container = intravenous.create();
+container.register("settings", Settings);
+container.register("settingsPrinter", SettingsPrinter);
+container.register("env", process.env.NODE_ENV);
 
-const settingsPrinter = new SettingsPrinter(Settings());
+const settingsPrinter = container.get("settingsPrinter");
 settingsPrinter.writeSettings();

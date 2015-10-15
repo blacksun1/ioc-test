@@ -1,10 +1,9 @@
 {
   "name": "ioc-test",
-  "description": "Very simple example of using babel and electrolyte together",
+  "description": "Very simple example of using babel and Intravenous together",
   "version": "0.0.0",
-
   "dependencies": {
-    "electrolyte": "0.0.6"
+    "intravenous": "^0.1.4-beta"
   },
   "devDependencies": {
     "grunt": "^0.4.5",

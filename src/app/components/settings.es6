@@ -1,10 +1,10 @@
 "use strict";
 
-export default function settings() {
+export default function settings(env) {
     const mySettings = {};
-    const env = process.env.NODE_ENV || "development";
+    const myEnv = env || "development";
 
-    switch (env) {
+    switch (myEnv) {
     case "production":
         mySettings.dbHost = "sql.example.com";
         mySettings.dbPort = 3306;
@@ -19,5 +19,5 @@ export default function settings() {
 }
 
 // export "@singleton" true;
-settings["@singleton"] = true;
+settings.$inject = ["env"];
 

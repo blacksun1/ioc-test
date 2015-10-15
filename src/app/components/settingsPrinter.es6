@@ -12,12 +12,8 @@ export default class SettingsPrinter {
         console.log(JSON.stringify(this.settings_, null, 2));
     }
 
-    static get "@require"() {
+    static get "$inject"() {
         return ["settings"];
-    }
-
-    static get "@singleton"() {
-        return true;
     }
 
 }
