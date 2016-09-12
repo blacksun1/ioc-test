@@ -3,4 +3,4 @@ import AppBootstrap from "./app/bootstrapper/appBootstrap";
 const container = AppBootstrap();
 
 const app = container.get("app");
-app.run();
+app.run(() => container.dispose());

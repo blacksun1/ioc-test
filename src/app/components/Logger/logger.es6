@@ -1,21 +1,21 @@
 /* eslint-disable no-console */
+import Chalk from "chalk";
 
 
 export default class ConsoleLogger {
 
-    constructor(name) {
+    constructor(console, name) {
 
-        this.name = name;
+        this.console = console;
+        this.name = name || "logger";
     }
 
     log(message) {
 
-        if (this.name) {
-            console.log(`${(new Date).toISOString()},${this.name}: ${message}`);
-        } else {
-            console.log(`${(new Date).toISOString()},logger: ${message}`);
-        }
+        this.console.log(`${Chalk.grey((new Date).toISOString())} ${Chalk.green(this.name)}: ${Chalk.blue(message)}`);
+    }
+
+    static get $inject() {
+        return ["console"];
     }
 }
-
-ConsoleLogger.$inject = [];

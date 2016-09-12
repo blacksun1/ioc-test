@@ -1,25 +1,23 @@
-export default class {
+export default class app {
 
-    constructor(logger1, logger2, logger3, logger4, settingsPrinter) {
+    constructor(defaultLogger, loggerFactory, settingsPrinter) {
 
-        this.logger1 = logger1;
-        this.logger2 = logger2;
-        this.logger3 = logger3;
-        this.logger4 = logger4;
+        this.defaultLogger = defaultLogger;
+        this.namedLogger = loggerFactory.get(this.constructor.name);
         this.settingsPrinter = settingsPrinter;
     }
 
-    run() {
+    run(callback) {
 
-        this.logger1.log("I Like cake");
-        this.logger2.log("I Like cake");
-        this.logger3.log("I Like cake");
-        this.logger4.log("I Like cake");
+        this.defaultLogger.log("I Like cake");
+        this.namedLogger.log("I still like cake");
 
         this.settingsPrinter.writeSettings();
+
+        return callback(null, null);
     }
 
     static get $inject() {
-        return ["logger", "logger", "logger", "logger", "settingsPrinter"];
+        return ["logger", "loggerFactory", "settingsPrinter"];
     }
 }
