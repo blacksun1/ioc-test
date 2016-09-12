@@ -10,7 +10,7 @@ export default function bootstrap() {
 
     const container = Intravenous.create({
         onDispose: function(obj, serviceName) {
-            console.log(`Intravenous is disposing ${serviceName}`, obj); // eslint-disable-line
+            console.log(`Intravenous is disposing ${serviceName}`); // eslint-disable-line
         }
     });
 
@@ -22,8 +22,8 @@ export default function bootstrap() {
         }
 
     });
-    // But this overwrites logger. No error occurs or anything,
-    // it just gets overwritten.
+    // But this next registration overwrites logger. No error occurs or
+    // anything, it just gets overwritten. This makes Hulk sad!
     LoggerModule(container);
 
     AppModule(container);

@@ -1,4 +1,4 @@
-import AppBootstrap from "./app/bootstrapper/appBootstrap";
+import AppBootstrap from "./bootstrapper/appBootstrap";
 
 const container = AppBootstrap();
 
