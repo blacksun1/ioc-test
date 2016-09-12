@@ -2,6 +2,8 @@
   "name": "ioc-test",
   "description": "Very simple example of using babel and Intravenous together",
   "version": "0.0.0",
+  "main": "./dist/server",
+  "license": "MIT",
   "dependencies": {
     "intravenous": "^0.1.4-beta"
   },

@@ -1,6 +1,7 @@
 "use strict";
 
 export default function settings(env) {
+
     const mySettings = {};
     const myEnv = env || "development";
 

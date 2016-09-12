@@ -12,7 +12,7 @@ export default class SettingsPrinter {
         console.log(JSON.stringify(this.settings_, null, 2));
     }
 
-    static get "$inject"() {
+    static get $inject() {
         return ["settings"];
     }
 
