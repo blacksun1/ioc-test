@@ -30,29 +30,40 @@ describe("Logger", () => {
 
         loggerSpy = Sinon.spy;
 
-        class MockLogger {
+        // class MockLogger {
 
-            constructor (name) {
-                this.name = name;
-                Sinon.spy(this, "log");
-            }
+        //     constructor (name) {
+        //         this.name = name;
+        //         Sinon.spy(this, "log");
+        //     }
 
-            log (message) {
+        //     log (message) {
 
-                return;
-            }
+        //         return;
+        //     }
+
+        //     static get $inject() {
+
+        //         return [];
+        //     }
+
+        // }
+
+        function MockLogger(name) {
+
+            console.log("MockLogger Ctrx called!", arguments);
+
+            this.name = name;
+            this.log = Sinon.spy();
         }
+        MockLogger.$inject = [];
 
         container = Intravenous.create();
         container.register("sut", Sut);
-        container.register("logger", MockLogger);
-        // container.register("loggerFactory", Sinon.stub()
-        //     .returns({
-        //         log: Sinon.spy()
-        //     }), "singleton")
+        container.register("logger", MockLogger, "singleton");
         container.register("settingsPrinter", {
             writeSettings: Sinon.spy()
-        }, "singleton")
+        }, "singleton");
 
         return done();
     });
@@ -85,8 +96,7 @@ describe("Logger", () => {
             // Assert
             expect(callback.calledOnce).to.be.true();
             const logger = container.get("logger");
-            expect(logger.calledTwice).to.be.true();
-            expect()
+            expect(logger.log.calledTwice).to.be.true();
 
             return done();
         });
