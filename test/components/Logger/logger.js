@@ -5,8 +5,8 @@
 const Lab = require("lab");
 const Code = require("code");
 const Sinon = require("sinon");
+const Intravenous = require("intravenous");
 const Sut = require("../../../dist/components/Logger/logger");
-const Intravenous = require("Intravenous");
 
 
 // Test shortcuts
