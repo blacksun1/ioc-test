@@ -2,6 +2,10 @@ language: node_js
 before_script:
   - npm install -g grunt-cli
   - grunt
+
+script:
+  - npm run travis
+
 node_js:
   - "4"
   - "6"
