@@ -5,8 +5,7 @@
   "main": "./dist/server",
   "license": "MIT",
   "scripts": {
-    "test": "grunt && ./node_modules/.bin/lab --assert code --verbose -S",
-    "travis": "npm install -g grunt && grunt && npm test"
+    "test": "grunt && ./node_modules/.bin/lab --assert code --verbose -S --coverage"
   },
   "dependencies": {
     "chalk": "^1.1.3",
