@@ -1,6 +1,8 @@
 # ioc-test
 
 [![Build Status](https://travis-ci.org/blacksun1/ioc-test.svg?branch=master)](https://travis-ci.org/blacksun1/ioc-test)
+[![Coverage Status](https://coveralls.io/repos/github/blacksun1/ioc-test/badge.svg?branch=master)](https://coveralls.io/github/blacksun1/ioc-test?branch=master)
+
 
 ## To run
 
