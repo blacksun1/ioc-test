@@ -1,6 +1,15 @@
 language: node_js
+
 before_script:
   - npm install -g grunt-cli
+  - cd ./logger
+  - npm install
+  - grunt
+  - npm test
+  - npm link
+  - cd ../app
+  - npm install
+  - npm link ioc-test
   - grunt
 
 script:

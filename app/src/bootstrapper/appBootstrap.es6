@@ -1,7 +1,7 @@
 import Intravenous from "intravenous";
 
 import AppModule from "./appModule";
-import LoggerModule from "../components/Logger/loggerModule";
+import {registrationModule as LoggerModule} from "ioc-logger";
 import Settings from "../components/settings";
 import SettingsPrinter from "../components/settingsPrinter";
 
@@ -14,18 +14,7 @@ export default function bootstrap() {
         }
     });
 
-    // Here I am registering a logger.
-    container.register("logger", class Logger {
-
-        log(msg) {
-            console.log(msg); // eslint-disable-line
-        }
-
-    });
-    // But this next registration overwrites logger. No error occurs or
-    // anything, it just gets overwritten. This makes Hulk sad!
     LoggerModule(container);
-
     AppModule(container);
 
     container.register("settings", Settings);

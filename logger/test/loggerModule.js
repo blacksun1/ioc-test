@@ -5,7 +5,7 @@
 const Lab = require("lab");
 const Code = require("code");
 const Sinon = require("sinon");
-const Sut = require("../../../dist/components/Logger/loggerModule").default;
+const Sut = require("../dist/loggerModule").default;
 
 
 // Test shortcuts
