@@ -1,7 +1,7 @@
 "use strict";
 
 module.exports = function(grunt) {
-    require('load-grunt-tasks')(grunt);
+    require("load-grunt-tasks")(grunt);
 
     grunt.initConfig({
         babel: {
@@ -23,6 +23,7 @@ module.exports = function(grunt) {
         },
         eslint: {
             target: [
+                "Gruntfile.js",
                 "src/**/*.es6",
                 "test/**/*.js"
             ]
