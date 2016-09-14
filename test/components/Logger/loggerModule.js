@@ -5,7 +5,7 @@
 const Lab = require("lab");
 const Code = require("code");
 const Sinon = require("sinon");
-const Sut = require("../../../dist/components/Logger/loggerModule");
+const Sut = require("../../../dist/components/Logger/loggerModule").default;
 
 
 // Test shortcuts
@@ -25,10 +25,10 @@ describe("loggerModule", () => {
         // Arrange
         const container = {
             register: Sinon.spy()
-        }
+        };
 
         // Act
-        const actual = Sut(container);
+        Sut(container);
 
         // Assert
         expect(container.register.callCount).to.equal(3);

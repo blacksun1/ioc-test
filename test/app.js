@@ -6,7 +6,7 @@ const Lab = require("lab");
 const Code = require("code");
 const Sinon = require("sinon");
 const Intravenous = require("intravenous");
-const Sut = require("../dist/app");
+const Sut = require("../dist/app").default;
 
 
 // Test shortcuts
@@ -24,34 +24,23 @@ const expect = Code.expect;
 describe("Logger", () => {
 
     let container;
-    let loggerSpy;
+
+    it("Should not allow itself to be called without new", (done) => {
+
+        // Act
+        const act = () => Sut();
+
+        // Assert
+        expect(act).to.throw(TypeError, /Cannot call a class as a function/);
+
+        return done();
+    });
 
     beforeEach((done) => {
 
-        loggerSpy = Sinon.spy;
-
-        // class MockLogger {
-
-        //     constructor (name) {
-        //         this.name = name;
-        //         Sinon.spy(this, "log");
-        //     }
-
-        //     log (message) {
-
-        //         return;
-        //     }
-
-        //     static get $inject() {
-
-        //         return [];
-        //     }
-
-        // }
-
         function MockLogger(name) {
 
-            console.log("MockLogger Ctrx called!", arguments);
+            // console.log("MockLogger Ctrx called!", arguments);
 
             this.name = name;
             this.log = Sinon.spy();
@@ -73,7 +62,7 @@ describe("Logger", () => {
         container.dispose();
 
         return done();
-    })
+    });
 
     it("should have a static $inject property", (done) => {
 

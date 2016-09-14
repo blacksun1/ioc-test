@@ -6,7 +6,7 @@ const Lab = require("lab");
 const Code = require("code");
 const Sinon = require("sinon");
 const Intravenous = require("intravenous");
-const Sut = require("../../../dist/components/Logger/logger");
+const Sut = require("../../../dist/components/Logger/logger").default;
 
 
 // Test shortcuts
@@ -25,18 +25,29 @@ describe("Logger", () => {
 
     let container;
 
+    it("Should not allow itself to be called without new", (done) => {
+
+        // Act
+        const act = () => Sut();
+
+        // Assert
+        expect(act).to.throw(TypeError, /Cannot call a class as a function/);
+
+        return done();
+    });
+
     beforeEach((done) => {
 
         container = Intravenous.create();
         container.register("sut", Sut);
         container.register("console", {
             log: Sinon.spy()
-        }, "singleton")
+        }, "singleton");
         container.register("chalk", {
             green: Sinon.stub().returnsArg(0),
             blue: Sinon.stub().returnsArg(0),
             grey: Sinon.stub().returnsArg(0)
-        }, "singleton")
+        }, "singleton");
 
         return done();
     });
@@ -46,7 +57,7 @@ describe("Logger", () => {
         container.dispose();
 
         return done();
-    })
+    });
 
     it("should have a static $inject property", (done) => {
 
@@ -63,7 +74,7 @@ describe("Logger", () => {
             const sut = container.get("sut");
 
             // Act
-            sut.log("my message")
+            sut.log("my message");
 
             // Assert
             const console = container.get("console");
@@ -79,7 +90,7 @@ describe("Logger", () => {
             const sut = container.get("sut", "my custom logger");
 
             // Act
-            sut.log("my message")
+            sut.log("my message");
 
             // Assert
             const console = container.get("console");
@@ -95,7 +106,7 @@ describe("Logger", () => {
             const sut = container.get("sut");
 
             // Act
-            sut.log("my message")
+            sut.log("my message");
 
             // Assert
             const chalk = container.get("chalk");

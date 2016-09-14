@@ -12,8 +12,8 @@
 	},
 	"extends": "eslint:recommended",
     "rules": {
-        "semi": [2, "always"],
-        "quotes": [2, "double"],
-        "indent": [2, 4]
+        "semi": ["ERROR", "always"],
+        "quotes": ["ERROR", "double"],
+        "indent": ["ERROR", 4]
     }
 }

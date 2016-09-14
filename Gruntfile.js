@@ -22,7 +22,10 @@ module.exports = function(grunt) {
             dist: ["dist"]
         },
         eslint: {
-            target: ["src/**/*.es6"]
+            target: [
+                "src/**/*.es6",
+                "test/**/*.js"
+            ]
         }
     });
 
