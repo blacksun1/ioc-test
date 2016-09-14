@@ -11,9 +11,10 @@ before_script:
   - npm install
   - npm link ioc-logger
   - grunt
+  - cd ../
 
 script:
-  - npm run travis
+  - npm --prefix ./app run travis
 
 node_js:
   - "4"
