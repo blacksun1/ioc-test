@@ -11,7 +11,14 @@ grunt
 node ./
 ```
 
-# How does it work?
+## To run
+
+```bash
+grunt
+npm test
+```
+
+## How does it work?
 
 It tries to show off EVERYTHING as a component - even the application. `server` simply calls the bootstrapper which
 returns the IOC container, get the `app` component and then calls `run` on it. Job done.
