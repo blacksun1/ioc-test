@@ -9,7 +9,7 @@ before_script:
   - npm link
   - cd ../app
   - npm install
-  - npm link ioc-test
+  - npm link ioc-logger
   - grunt
 
 script:
