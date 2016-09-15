@@ -6,7 +6,10 @@
 
 ## To run
 
+The logger component (ioc-logger) is required for this to work. It will need to be built and `npm link` to be run on it first.
+
 ```bash
+npm link ioc-test
 grunt
 node ./
 ```
