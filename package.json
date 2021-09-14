@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "babel-runtime": "^6.11.6",
-    "chalk": "^1.1.3",
+    "chalk": "^2.0.0",
     "intravenous": "^0.1.4-beta"
   },
   "devDependencies": {
